@@ -97,46 +97,46 @@ Chương trình ESP32 nhận và giải mã bản tin MQTT rồi đặt hai tín
 
 | STT | Sơ đồ | Ảnh PNG | Mã nguồn PlantUML |
 |---|---|---|---|
-| 1 | Chức năng — Use Case | [Xem ảnh](23110149-5-so-do/01-chuc-nang.png) | [Xem PUML](23110149-5-so-do/01-chuc-nang.puml) |
-| 2 | Luồng số đo — Sequence | [Xem ảnh](23110149-5-so-do/02-luong-so-do.png) | [Xem PUML](23110149-5-so-do/02-luong-so-do.puml) |
-| 3 | Luồng lệnh và xác nhận — Sequence | [Xem ảnh](23110149-5-so-do/03-luong-lenh.png) | [Xem PUML](23110149-5-so-do/03-luong-lenh.puml) |
-| 4 | Quy trình xử lý lệnh — Activity | [Xem ảnh](23110149-5-so-do/04-hoat-dong.png) | [Xem PUML](23110149-5-so-do/04-hoat-dong.puml) |
-| 5 | Triển khai hệ thống — Deployment | [Xem ảnh](23110149-5-so-do/05-trien-khai.png) | [Xem PUML](23110149-5-so-do/05-trien-khai.puml) |
+| 1 | Chức năng — Use Case | [Xem ảnh](01-chuc-nang.png) | [Xem PUML](01-chuc-nang.puml) |
+| 2 | Luồng số đo — Sequence | [Xem ảnh](02-luong-so-do.png) | [Xem PUML](02-luong-so-do.puml) |
+| 3 | Luồng lệnh và xác nhận — Sequence | [Xem ảnh](03-luong-lenh.png) | [Xem PUML](03-luong-lenh.puml) |
+| 4 | Quy trình xử lý lệnh — Activity | [Xem ảnh](04-hoat-dong.png) | [Xem PUML](04-hoat-dong.puml) |
+| 5 | Triển khai hệ thống — Deployment | [Xem ảnh](05-trien-khai.png) | [Xem PUML](05-trien-khai.puml) |
 
 ### Xem các sơ đồ
 
 <details>
 <summary>1. Chức năng — Use Case</summary>
 
-![Chức năng — Use Case](23110149-5-so-do/01-chuc-nang.png)
+![Chức năng — Use Case](01-chuc-nang.png)
 
 </details>
 
 <details>
 <summary>2. Luồng số đo — Sequence</summary>
 
-![Luồng số đo — Sequence](23110149-5-so-do/02-luong-so-do.png)
+![Luồng số đo — Sequence](02-luong-so-do.png)
 
 </details>
 
 <details>
 <summary>3. Luồng lệnh và xác nhận — Sequence</summary>
 
-![Luồng lệnh và xác nhận — Sequence](23110149-5-so-do/03-luong-lenh.png)
+![Luồng lệnh và xác nhận — Sequence](03-luong-lenh.png)
 
 </details>
 
 <details>
 <summary>4. Quy trình xử lý lệnh — Activity</summary>
 
-![Quy trình xử lý lệnh — Activity](23110149-5-so-do/04-hoat-dong.png)
+![Quy trình xử lý lệnh — Activity](04-hoat-dong.png)
 
 </details>
 
 <details>
 <summary>5. Triển khai hệ thống — Deployment</summary>
 
-![Triển khai hệ thống — Deployment](23110149-5-so-do/05-trien-khai.png)
+![Triển khai hệ thống — Deployment](05-trien-khai.png)
 
 </details>
 
