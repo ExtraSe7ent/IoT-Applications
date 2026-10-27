@@ -1,0 +1,6 @@
+run,samples,valid_samples,error_samples,first_sample_ms,last_sample_ms,sample_span_s,intervals,mean_dt_ms,min_dt_ms,max_dt_ms,mean_deviation_ms,max_abs_deviation_ms,drift_at_last_sample_ms,button_events,last_row_button_count,physical_presses,response_latency_ms
+stable_millis,30,30,0,2683,60683,58.0,29,2000,2000,2000,0,0,0,0,0,unknown,null
+changes_millis,30,30,0,2683,60746,58.063,29,2002.1724137931035,2000,2035,2.1724137931034875,35,63,23,23,unknown,null
+fault,18,0,18,2683,36683,34.0,17,2000,2000,2000,0,0,0,0,0,unknown,null
+timing_millis,30,30,0,2683,60683,58.0,29,2000,2000,2000,0,0,0,10,10,unknown,null
+timing_delay,30,30,0,2682,62290,59.608,29,2055.448275862069,2050,2095,55.44827586206884,95,1608,3,3,unknown,null

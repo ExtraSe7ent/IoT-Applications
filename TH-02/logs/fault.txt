@@ -1,0 +1,33 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+# I2C scan: SDA=21 SCL=22
+# I2C_FOUND,0x3C
+# OLED_OK
+time_ms,sample,dt_ms,temperature_c,humidity_pct,valid,error,temperature_ma5,humidity_ma5,adc_raw,voltage_ideal_v,button_count,mode
+2683,1,0,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+4683,2,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+6683,3,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+8683,4,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+10683,5,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+12683,6,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+14683,7,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+16683,8,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+18683,9,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+20683,10,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+22683,11,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+24683,12,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+26683,13,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+28683,14,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+30683,15,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+32683,16,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+34683,17,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
+36683,18,2000,null,null,0,dht_read_failed,null,null,4095,3.300,0,nonblocking
