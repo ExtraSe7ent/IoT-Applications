@@ -1,8 +1,8 @@
 # TH01 — Đọc mạch và vẽ hệ thống theo mẫu
 
-**Họ và Tên:** Nguyễn Quang ANh
+**Họ và Tên:** Nguyễn Quang Anh
 **Mã sinh viên:** 23110149    
-**Học phần:** CSE3069 — Ứng dụng IoT
+**Học phần:** CSE3069 - Ứng dụng IoT
 
 Bài thực hành gồm phần trả lời câu hỏi đọc schematic Farm House Rev 1.0.1 và bộ 5 sơ đồ UML làm theo mẫu của giảng viên.
 
