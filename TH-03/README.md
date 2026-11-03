@@ -79,13 +79,3 @@ Máy trạng thái mặc định **DỪNG**, chỉ nhận `ON` khi PWM/timer kh�
 Có thể bổ sung thử mất DHT theo hướng dẫn giảng viên, kỳ vọng lần đọc tiếp theo báo `dht_read_failed` và tải tắt. Chưa có quan sát, nguyên nhân lỗi phần cứng hay sửa chữa nào để báo cáo. Sau mỗi ca cần ghi đầu vào, thời điểm log, quan sát LED, kết luận đạt/không đạt và lý do; đặt ba video cùng thư mục README theo tên `test_case_1.mp4` đến `test_case_3.mp4`, lưu toàn bộ Serial nguyên gốc vào `serial_log.txt`. Không chép log tự dựng làm bằng chứng.
 
 ![Máy trạng thái điều khiển an toàn](fsm_diagram.png)
-
-## Nguồn đối chiếu
-
-- Đề TH03, mục 3, 4, 7 và câu hỏi 4.1–4.5; schematic Farm House rev1.0.1, trang 4/5.
-- [Espressif — Timer API](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/timer.html).
-- [Espressif — LEDC API](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ledc.html).
-- [Espressif — GPIO và điện trở kéo](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html).
-- [Adafruit — DHT sensor library 1.4.6](https://github.com/adafruit/DHT-sensor-library/tree/1.4.6).
-
-Nộp một link repo Git cá nhân lên mục TH03 trên SV20 sau khi commit đủ firmware, sơ đồ, ba video, log thật và README đã cập nhật kết quả.
