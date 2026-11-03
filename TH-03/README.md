@@ -9,8 +9,6 @@
 - [fsm_diagram.png](fsm_diagram.png): sơ đồ trạng thái.
 - [fsm_diagram.drawio](fsm_diagram.drawio): nguồn sơ đồ có thể chỉnh sửa.
 
-Chưa có `test_case_1.mp4`, `test_case_2.mp4`, `test_case_3.mp4` và `serial_log.txt`: phải ghi trên mô hình nhà kính thật. Firmware chưa được biên dịch, chạy test hoặc nạp lên ESP32. Những ô “chưa đo” bên dưới không phải kết quả thực nghiệm. Hồ sơ chưa đủ điều kiện nộp cho tới khi bổ sung bằng chứng và thông tin nhóm.
-
 ## 4.1 Cấu hình phần cứng
 
 Chọn **LED strip tại J11**, thuộc khối **ARRAY_LED1** trên trang 4/5 của schematic `farm_house_schematic_rev1.0.1.pdf`. Tên khối ARRAY_LED1 khác tên net điều khiển ARRAY_LED3; firmware dùng đúng **GPIO13 / ARRAY_LED3**, không lấy số 1 trong tên khối làm số GPIO. Đường điều khiển là **GPIO13 → VIN chân 3 của U11 (N531) → VOUT chân 1 → gate Q10 (30N06) → J11 chân 2**. Q10 đóng cắt phía mass; J11 chân 1 nối VDC, source Q10 nối GNDD. D9 (DSK115) mắc giữa đầu tải và VDC. Nguồn tải là **VDC của bo**, không phải GPIO hay nguồn 3V3; phải đo VDC và đối chiếu điện áp định mức LED thực tế, không tự coi VDC là 12 V.
