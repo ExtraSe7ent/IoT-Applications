@@ -70,39 +70,15 @@ Máy trạng thái mặc định **DỪNG**, chỉ nhận `ON` khi PWM/timer kh�
 
 `updateState()` không dùng `delay()`; kiểm tra lỗi/hạn ở đầu vòng lặp và sau giao tiếp DHT. Giao tiếp DHT và Serial vẫn có độ trễ hữu hạn, vì vậy thời điểm tắt thực tế có thể muộn hơn mốc 15 giây một khoảng xử lý; chưa đo độ trễ và không coi đây là hệ thống dừng cứng đúng từng microsecond. DHT đọc mỗi 2 giây; tháo cảm biến chỉ được phát hiện ở lần đọc tiếp theo. Lệnh sai định dạng cho phép tạo Ca 3 mà không phải rút dây khi mạch đang cấp nguồn.
 
-| Ca | Đầu vào và thao tác | Kỳ vọng | Quan sát thực tế / kết luận |
+| Ca | Đầu vào và thao tác | Kỳ vọng |
 |---|---|---|---|
-| 1 — bình thường | Chờ `SENSOR ... valid=1`, gửi `DUTY 50`, `ON`; sau khoảng 3 giây gửi `OFF` | DỪNG → CHẠY → DỪNG, LED bật rồi tắt | Chưa chạy trên mô hình; chưa đánh giá |
-| 2 — quá giờ | Gửi `ON`, chờ trên 15 giây, không gửi `OFF` | Tự DỪNG, duty=0, reason=timeout, locked=1 | Chưa chạy trên mô hình; chưa đánh giá |
-| 3 — lệnh lỗi | Sau Ca 2 gửi `RESET` khi cảm biến hợp lệ, gửi `ON`; khi đang CHẠY gửi `ONN` | Tắt tải; LỖI reason=bad_command → DỪNG, locked=1 | Chưa chạy trên mô hình; chưa đánh giá |
+| 1 — bình thường | Chờ `SENSOR ... valid=1`, gửi `DUTY 50`, `ON`; sau khoảng 3 giây gửi `OFF` | DỪNG → CHẠY → DỪNG, LED bật rồi tắt |
+| 2 — quá giờ | Gửi `ON`, chờ trên 15 giây, không gửi `OFF` | Tự DỪNG, duty=0, reason=timeout, locked=1 |
+| 3 — lệnh lỗi | Sau Ca 2 gửi `RESET` khi cảm biến hợp lệ, gửi `ON`; khi đang CHẠY gửi `ONN` | Tắt tải; LỖI reason=bad_command → DỪNG, locked=1 |
 
 Có thể bổ sung thử mất DHT theo hướng dẫn giảng viên, kỳ vọng lần đọc tiếp theo báo `dht_read_failed` và tải tắt. Chưa có quan sát, nguyên nhân lỗi phần cứng hay sửa chữa nào để báo cáo. Sau mỗi ca cần ghi đầu vào, thời điểm log, quan sát LED, kết luận đạt/không đạt và lý do; đặt ba video cùng thư mục README theo tên `test_case_1.mp4` đến `test_case_3.mp4`, lưu toàn bộ Serial nguyên gốc vào `serial_log.txt`. Không chép log tự dựng làm bằng chứng.
 
 ![Máy trạng thái điều khiển an toàn](fsm_diagram.png)
-
-## 4.5 Đóng góp cá nhân
-
-Chưa có commit/log thực nghiệm TH03 để xác nhận đóng góp cá nhân. Bản firmware, tài liệu và sơ đồ hiện tại được chuẩn bị với hỗ trợ của Codex từ đề và schematic do sinh viên cung cấp. Sinh viên cần tự kiểm tra đấu nối cùng giảng viên, đọc/hiểu code, nạp firmware, thực hiện thí nghiệm, ghi số liệu và commit vào repo cá nhân; sau đó ghi đúng phần mình thực hiện và dẫn mã commit/log tương ứng. Thông tin bạn cùng nhóm hỗ trợ: chưa cung cấp. Không coi nội dung được công cụ hỗ trợ tạo là phần đã tự làm hoặc là thí nghiệm đã hoàn thành.
-
-## Cách mở firmware và chạy
-
-1. Cài Arduino IDE, board package **esp32 by Espressif Systems 3.x**, thư viện **DHT sensor library by Adafruit 1.4.6** và phụ thuộc **Adafruit Unified Sensor**. Code dùng API 3.x, không dùng API timer/LEDC 2.x.
-2. Arduino yêu cầu thư mục sketch trùng tên file chính: tạo thư mục `control`, sao chép `control.ino` vào đó, mở `control/control.ino`. File gốc trong hồ sơ vẫn giữ tên theo đề. Chọn **ESP32 Dev Module** tương ứng ESP32-DEVKITC-32E.
-3. Kiểm tra phần cứng ở mục 4.1: ngõ LED J11, nguồn VDC, cực tính N531, trạng thái reset, pull-up nút và mức DATA DHT. Chỉ cấp nguồn tải sau khi giảng viên kiểm tra.
-4. Nạp code; mở Serial Monitor **115200 baud**, kết thúc dòng **Newline** hoặc **Both NL & CR**. Chờ ít nhất 2 giây và một dòng `SENSOR ... valid=1` trước khi bật. Không bật được khi cảm biến thiếu hoặc lỗi.
-5. Làm thí nghiệm nút và timer/PWM trước, rồi thực hiện ba ca thử. Ghi log/video thật và cập nhật các bảng kết quả.
-
-| Lệnh — viết hoa đúng định dạng | Chức năng |
-|---|---|
-| `ON` | Yêu cầu chạy nếu đủ điều kiện |
-| `OFF` | Tắt tải, ưu tiên hơn ON trong cùng đợt đọc |
-| `RESET` | Xóa khóa lỗi/quá giờ khi đang DỪNG, phần cứng và cảm biến hợp lệ; không tự bật |
-| `STATUS` | In trạng thái, cấu hình và số đếm nút |
-| `DUTY 25`, `DUTY 50`, `DUTY 90` | Đổi duty lúc DỪNG |
-| `DEBOUNCE OFF`, `DEBOUNCE ON` | Tắt/bật xử lý chống dội lúc DỪNG |
-| `CLEAR` | Xóa mốc đếm thí nghiệm lúc DỪNG và nút đang nhả; không xóa khóa lỗi |
-
-Lệnh không nhận dạng hoặc dòng quá dài báo lỗi và tắt tải. Dòng trống được bỏ qua. Bộ đệm lệnh không dùng `String` động hay `readStringUntil()` chờ timeout; mỗi vòng đọc tối đa 64 ký tự để tiếp tục kiểm tra hạn chạy. Một dòng chưa có newline chưa được coi là lệnh hoàn chỉnh; giới hạn 15 giây vẫn hoạt động.
 
 ## Nguồn đối chiếu
 
