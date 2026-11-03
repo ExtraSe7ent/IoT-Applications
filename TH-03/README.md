@@ -2,7 +2,6 @@
 
 **Họ tên:** Nguyễn Quang Anh  
 **MSSV:** 23110149  
-**Nhóm:** Chưa cung cấp
 
 ## File trong repo này
 
@@ -107,7 +106,7 @@ Lệnh không nhận dạng hoặc dòng quá dài báo lỗi và tắt tải. D
 
 ## Nguồn đối chiếu
 
-- Đề TH03, mục 3, 4, 7 và câu hỏi 4.1–4.5; schematic Farm House rev1.0.1, trang 4/5 do người học cung cấp.
+- Đề TH03, mục 3, 4, 7 và câu hỏi 4.1–4.5; schematic Farm House rev1.0.1, trang 4/5.
 - [Espressif — Timer API](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/timer.html).
 - [Espressif — LEDC API](https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ledc.html).
 - [Espressif — GPIO và điện trở kéo](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html).
