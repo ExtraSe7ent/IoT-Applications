@@ -10,7 +10,7 @@ ESP32 trên mô hình nhà kính đã gửi bản tin MQTT tới Mosquitto chạ
 ## Mục lục
 
 - [1. Nội dung hồ sơ](#1-nội-dung-hồ-sơ)
-- [2. Môi trường và cách chạy](#2-môi-trường-và-cách-chạy)
+- [2. Môi trường đã dùng](#2-môi-trường-đã-dùng)
 - [3. Kết quả kiểm chứng](#3-kết-quả-kiểm-chứng)
 - [4. Trả lời câu hỏi](#4-trả-lời-câu-hỏi)
 
@@ -27,7 +27,7 @@ ESP32 trên mô hình nhà kính đã gửi bản tin MQTT tới Mosquitto chạ
 | [log_queue_observed.txt](log_queue_observed.txt) | Trích các lần queue đầy trong chính lượt dừng broker |
 | [logs/](logs/) | Log serial gốc dùng để đối chiếu |
 
-## 2. Môi trường và cách chạy
+## 2. Môi trường đã dùng
 
 | Thành phần | Cấu hình đã dùng |
 |---|---|
@@ -35,25 +35,8 @@ ESP32 trên mô hình nhà kính đã gửi bản tin MQTT tới Mosquitto chạ
 | Broker | Mosquitto trong Docker Desktop trên MacBook |
 | Máy quan sát | PowerShell trong máy ảo Windows trên cùng MacBook. Máy ảo đã nhận bản tin thử `th04/check` |
 | Topic của ESP32 | `23110149/node01/telemetry` |
-| Serial Monitor | 115200 baud |
 
 ![Sơ đồ triển khai và task FreeRTOS](task_queue.png)
-
-Khi dựng lại broker từ thư mục này, tạo tệp tài khoản lần đầu rồi khởi động container. Tùy chọn `-c` tạo mới tệp mật khẩu, chỉ dùng ở lần thiết lập đầu tiên.
-
-```bash
-docker compose run --rm --no-deps broker \
-  mosquitto_passwd -c /mosquitto/config/passwords th04
-docker compose up -d broker
-docker compose ps
-```
-
-Trong PlatformIO, sao chép [tệp cấu hình mẫu](firmware/src/th04_secrets.example.h) thành `firmware/src/th04_secrets.h`. Điền Wi‑Fi, tài khoản MQTT và địa chỉ LAN thực tế của máy chạy broker. Tệp cấu hình riêng, tệp mật khẩu Mosquitto và thư mục build được loại khỏi Git qua [.gitignore](.gitignore).
-
-```bash
-pio run -d firmware
-pio device monitor -p /dev/cu.usbserial-0001 -b 115200 --dtr 0 --rts 0
-```
 
 ## 3. Kết quả kiểm chứng
 
@@ -70,7 +53,7 @@ pio device monitor -p /dev/cu.usbserial-0001 -b 115200 --dtr 0 --rts 0
 
 ### 4.1. Payload thực tế
 
-Đây là một bản tin đã nhận trực tiếp từ ESP32 trên topic `23110149/node01/telemetry` trong lượt kiểm tra broker:
+Đây là một bản tin đã nhận trực tiếp từ ESP32 trên topic `23110149/node01/telemetry` trong lượt kiểm tra broker.
 
 ```json
 {"device_id":"node01","ts_ms":124535,"temp_c":null,"humidity_pct":null,"rain_adc":null,"valid":false}
@@ -80,7 +63,7 @@ pio device monitor -p /dev/cu.usbserial-0001 -b 115200 --dtr 0 --rts 0
 
 ### 4.2. Task và queue
 
-Task `safety` xử lý FSM TH03, lệnh serial và đọc DHT11 theo chu kỳ mục tiêu 2 giây. Task chép mẫu vào queue 10 phần tử bằng `xQueueSend(..., 0)`. Khi queue đầy, chương trình giữ các mẫu đang chờ, bỏ mẫu mới và tăng `total_dropped`. Task `mqtt_publish` lấy mẫu bằng `xQueueReceive` khi đã nối broker, tạo JSON và publish. Việc gửi qua mạng nằm trong task riêng, nên task an toàn có thể kiểm tra trạng thái và thời hạn chạy ngay cả khi MQTT đang chờ hoặc kết nối lại.
+Task `safety` xử lý FSM TH03, lệnh serial và đọc DHT11 theo chu kỳ mục tiêu 2 giây. Task đưa mẫu vào queue 10 phần tử mà không chờ chỗ trống. Khi queue đầy, chương trình giữ các mẫu đang chờ, bỏ mẫu mới và tăng `total_dropped`. Khi đã nối broker, task `mqtt_publish` lấy mẫu từ queue, tạo JSON và gửi. Việc gửi qua mạng nằm trong task riêng, nên task an toàn có thể kiểm tra trạng thái và thời hạn chạy ngay cả khi MQTT đang chờ hoặc kết nối lại.
 
 ### 4.3. Thí nghiệm ngắt kết nối
 
