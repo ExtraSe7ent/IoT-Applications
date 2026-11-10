@@ -1,0 +1,68 @@
+# TH04 - Thu ngat broker, 2026-11-10 (UTC+07)
+# Moc Terminal macOS (UTC+07)
+Broker stopped at 13:01:01
+Broker started at 13:01:31
+
+# Trich log serial goc: logs/device-monitor-261110-130052.log
+# Log serial ket thuc truoc moc broker khoi dong lai.
+13:01:02.191 > MQTT,9577,connected
+13:01:02.199 > E (9579) mqtt_client: esp_mqtt_handle_transport_read_error: transport_read(): EOF
+13:01:02.206 > E (9580) mqtt_client: esp_mqtt_handle_transport_read_error: transport_read() error: errno=128
+13:01:02.215 > E (9584) mqtt_client: mqtt_process_receive: mqtt_message_receive() returned -2
+13:01:02.221 > MQTT,9598,disconnected
+13:01:02.664 > TIMER,10050,tick=5,delta_ticks=1,service_dt_us=1998232
+13:01:02.854 > SENSOR,10240,valid=0,T=null,H=null
+13:01:04.661 > TIMER,12047,tick=6,delta_ticks=1,service_dt_us=1997634
+13:01:04.864 > SENSOR,12249,valid=0,T=null,H=null
+13:01:04.878 > E (24804) esp-tls: [sock=48] delayed connect error: Connection reset by peer
+13:01:04.885 > E (24805) transport_base: Failed to open a new connection: 32772
+13:01:04.891 > E (24806) mqtt_client: Error transport connect
+13:01:04.895 > MQTT,12271,disconnected
+13:01:06.667 > TIMER,14053,tick=7,delta_ticks=1,service_dt_us=2006023
+13:01:06.866 > SENSOR,14253,valid=0,T=null,H=null
+13:01:07.856 > E (27781) esp-tls: [sock=48] delayed connect error: Connection reset by peer
+13:01:07.863 > E (27783) transport_base: Failed to open a new connection: 32772
+13:01:07.869 > E (27783) mqtt_client: Error transport connect
+13:01:07.873 > MQTT,15249,disconnected
+13:01:08.666 > TIMER,16052,tick=8,delta_ticks=1,service_dt_us=1999016
+13:01:08.876 > SENSOR,16262,valid=0,T=null,H=null
+13:01:09.963 > E (29888) esp-tls: [sock=48] delayed connect error: Connection reset by peer
+13:01:09.969 > E (29889) transport_base: Failed to open a new connection: 32772
+13:01:09.975 > E (29890) mqtt_client: Error transport connect
+13:01:09.979 > MQTT,17355,disconnected
+13:01:10.670 > TIMER,18056,tick=9,delta_ticks=1,service_dt_us=2003989
+13:01:10.882 > SENSOR,18268,valid=0,T=null,H=null
+13:01:12.670 > TIMER,20056,tick=10,delta_ticks=1,service_dt_us=1999996
+13:01:12.878 > SENSOR,20264,valid=0,T=null,H=null
+13:01:13.765 > E (33690) esp-tls: [sock=48] delayed connect error: Connection reset by peer
+13:01:13.771 > E (33691) transport_base: Failed to open a new connection: 32772
+13:01:13.777 > E (33692) mqtt_client: Error transport connect
+13:01:13.781 > MQTT,21157,disconnected
+13:01:14.668 > TIMER,22053,tick=11,delta_ticks=1,service_dt_us=1997004
+13:01:14.887 > SENSOR,22273,valid=0,T=null,H=null
+13:01:14.889 > QUEUE,22273,full,drop_newest,total_dropped=1
+13:01:16.662 > TIMER,24047,tick=12,delta_ticks=1,service_dt_us=1993972
+13:01:16.890 > SENSOR,24275,valid=0,T=null,H=null
+13:01:16.911 > QUEUE,24276,full,drop_newest,total_dropped=2
+13:01:17.890 > E (37815) esp-tls: [sock=48] select() timeout
+13:01:17.895 > E (37816) transport_base: Failed to open a new connection: 32774
+13:01:17.900 > E (37816) mqtt_client: Error transport connect
+13:01:17.904 > MQTT,25279,disconnected
+13:01:18.666 > TIMER,26051,tick=13,delta_ticks=1,service_dt_us=2004023
+13:01:18.895 > SENSOR,26281,valid=0,T=null,H=null
+13:01:18.898 > QUEUE,26281,full,drop_newest,total_dropped=3
+13:01:20.662 > TIMER,28047,tick=14,delta_ticks=1,service_dt_us=1996008
+13:01:20.902 > SENSOR,28287,valid=0,T=null,H=null
+13:01:20.906 > QUEUE,28288,full,drop_newest,total_dropped=4
+13:01:21.910 > E (41835) esp-tls: [sock=48] select() timeout
+13:01:21.915 > E (41836) transport_base: Failed to open a new connection: 32774
+13:01:21.920 > E (41836) mqtt_client: Error transport connect
+13:01:21.925 > MQTT,29299,disconnected
+13:01:22.665 > TIMER,30050,tick=15,delta_ticks=1,service_dt_us=2002989
+13:01:22.904 > SENSOR,30290,valid=0,T=null,H=null
+13:01:22.907 > QUEUE,30290,full,drop_newest,total_dropped=5
+
+# Trich log Docker Mosquitto (UTC)
+2026-11-10T06:01:00.938783020Z 1794290460: mosquitto version 2.0.22 terminating
+2026-11-10T06:01:31.531719495Z 1794290491: mosquitto version 2.0.22 running
+2026-11-10T06:01:33.234823201Z 1794290493: New client connected from 192.168.65.1:64133 as ESP32_a2D62C (p2, c1, k120, u'th04').

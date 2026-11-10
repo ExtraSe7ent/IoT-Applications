@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="th04-task-queue" name="TH04">
+    <mxGraphModel adaptiveColors="auto" page="1" pageWidth="1230" pageHeight="620" grid="0" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kicker" value="CSE3069  /  TH04  /  23110149" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#365983;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="23" width="1120" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="Task, queue và đường truyền MQTT" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=36;fontColor=#182538;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="54" width="1130" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Cấu hình đã chạy trên ESP32 nhà kính, MacBook và máy ảo Windows" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#53667d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="104" width="1140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="esp_panel" value="" style="rounded=1;arcSize=9;html=1;fillColor=#f4f7fb;strokeColor=#d8e2ee;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="154" width="762" height="301" as="geometry" />
+        </mxCell>
+        <mxCell id="lan_panel" value="" style="rounded=1;arcSize=9;html=1;fillColor=#f4f7fb;strokeColor=#d8e2ee;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="154" width="360" height="301" as="geometry" />
+        </mxCell>
+        <mxCell id="esp_title" value="ESP32 nhà kính · FreeRTOS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontColor=#24476d;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="170" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="lan_title" value="Máy chạy broker và máy nhận" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=19;fontColor=#24476d;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="852" y="170" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="safety" value="&lt;b&gt;Task safety&lt;/b&gt;&lt;br&gt;FSM TH03 và nhịp TIMER&lt;br&gt;Đọc DHT11 ở J1 / GPIO14&lt;br&gt;Chu kỳ lấy mẫu khoảng 2 s" style="rounded=1;arcSize=11;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=13;fontFamily=Arial;fontSize=15;fontColor=#182538;fillColor=#ffffff;strokeColor=#8eabc7;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="225" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="queue" value="&lt;b&gt;Queue telemetry&lt;/b&gt;&lt;br&gt;Tối đa 10 mẫu&lt;br&gt;Ghi với thời gian chờ 0&lt;br&gt;Đầy thì bỏ mẫu mới" style="rounded=1;arcSize=11;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=13;fontFamily=Arial;fontSize=15;fontColor=#182538;fillColor=#eaf2ff;strokeColor=#7ca2d2;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="310" y="220" width="207" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="mqtt" value="&lt;b&gt;Task mqtt_publish&lt;/b&gt;&lt;br&gt;Lấy mẫu khi đã nối broker&lt;br&gt;Tạo JSON và gửi qua Wi-Fi&lt;br&gt;MQTT QoS 0" style="rounded=1;arcSize=11;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=13;fontFamily=Arial;fontSize=15;fontColor=#182538;fillColor=#ffffff;strokeColor=#8eabc7;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="542" y="220" width="239" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="broker" value="&lt;b&gt;Mosquitto trên MacBook&lt;/b&gt;&lt;br&gt;Docker Compose · TCP 1883&lt;br&gt;Topic 23110149/node01/telemetry" style="rounded=1;arcSize=11;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=13;fontFamily=Arial;fontSize=15;fontColor=#182538;fillColor=#e9f7ef;strokeColor=#80b59a;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="852" y="220" width="316" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="subscriber" value="&lt;b&gt;Subscriber&lt;/b&gt;&lt;br&gt;Windows VM: thử kết nối&lt;br&gt;MacBook: nhận payload ESP32" style="rounded=1;arcSize=11;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacingLeft=13;fontFamily=Arial;fontSize=15;fontColor=#182538;fillColor=#ffffff;strokeColor=#8eabc7;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="852" y="350" width="316" height="87" as="geometry" />
+        </mxCell>
+        <mxCell id="produce" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#466382;endArrow=block;endFill=1;" edge="1" source="safety" target="queue" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="consume" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#466382;endArrow=block;endFill=1;" edge="1" source="queue" target="mqtt" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="publish" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#466382;endArrow=block;endFill=1;" edge="1" source="mqtt" target="broker" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="subscribe" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#466382;endArrow=block;endFill=1;" edge="1" source="broker" target="subscriber" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="serial_note" value="USB serial ghi TIMER, QUEUE và trạng thái kết nối." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#53667d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="385" width="690" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="limit_panel" value="" style="rounded=1;arcSize=9;html=1;fillColor=#f4f7fb;strokeColor=#d8e2ee;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="479" width="1150" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="limit_title" value="Giới hạn đã quan sát" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#24476d;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="493" width="1100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="limit_1" value="Cảm biến nhiệt độ và độ ẩm của bộ lab cắm J19 phía UNO. Mưa đi vào J15 phía UNO." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#35465e;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="524" width="1100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="limit_2" value="Firmware chưa đọc số đo từ UNO qua I²C. Các bản tin đã thu có trường số đo null." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#35465e;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="549" width="1100" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,6 @@
+
+/mosquitto/config/passwords
+
+/firmware/.pio/
+
+/firmware/src/th04_secrets.h
