@@ -67,8 +67,5 @@ Task `safety` xử lý FSM TH03, lệnh serial và đọc DHT11 theo chu kỳ m�
 
 ### 4.3. Thí nghiệm ngắt kết nối
 
-Ngày 10/11/2026, Terminal ghi broker dừng lúc **13:01:01** và chạy lại lúc **13:01:31** theo giờ Việt Nam. ESP32 báo mất kết nối lúc **13:01:02.221**. Trong đoạn serial đã lưu, `TIMER` tăng từ tick 5 đến tick 15, xấp xỉ 2 giây mỗi tick. Queue đầy lần đầu lúc **13:01:14.889** và ghi nhận 5 mẫu mới bị bỏ trước khi log serial kết thúc lúc **13:01:22.907**. Log Docker xác nhận ESP32 kết nối lại lúc **13:01:33.235**. Vì serial kết thúc trước khi broker bật lại, bằng chứng về các tick chỉ bao phủ đoạn đã ghi, còn bằng chứng kết nối lại đến từ Mosquitto. [Xem log đối chiếu](log_disconnect.txt).
+Terminal ghi broker dừng lúc **13:01:01** và chạy lại lúc **13:01:31** theo giờ Việt Nam. ESP32 báo mất kết nối lúc **13:01:02.221**. Trong đoạn serial đã lưu, `TIMER` tăng từ tick 5 đến tick 15, xấp xỉ 2 giây mỗi tick. Queue đầy lần đầu lúc **13:01:14.889** và ghi nhận 5 mẫu mới bị bỏ trước khi log serial kết thúc lúc **13:01:22.907**. Log Docker xác nhận ESP32 kết nối lại lúc **13:01:33.235**. Vì serial kết thúc trước khi broker bật lại, bằng chứng về các tick chỉ bao phủ đoạn đã ghi, còn bằng chứng kết nối lại đến từ Mosquitto. [Xem log đối chiếu](log_disconnect.txt).
 
-### 4.4. Đóng góp cá nhân
-
-Em thiết lập broker và tài khoản MQTT trên MacBook, dùng PowerShell trong máy ảo Windows để thử subscribe, cấu hình Wi‑Fi và MQTT, build và nạp chương trình lên ESP32, sao lưu firmware gốc và thực hiện lượt dừng broker 30 giây. [Log thí nghiệm](log_disconnect.txt) là minh chứng cho lượt chạy. Codex hỗ trợ viết và sửa firmware, phân tích log, đối chiếu sơ đồ mạch và biên tập hồ sơ.
